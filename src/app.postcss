@@ -264,7 +264,7 @@ h5, h6 {
 	min-height: 100vh;
 	min-height: 100svh;
 }
-.hero__contents::after {
+.hero-backdrop {
 	display: block;
 	z-index: 0;
 	content: '';
@@ -277,9 +277,9 @@ h5, h6 {
 	max-width: calc(100% - 6rem);
 	min-height: 990px;
 	clip-path: polygon(20rem 0px, 100% 0%, 100% 100%, 0% 100%);
-	background-image: url(/bg.webp);
-	background-size: cover;
-	background-position: left center;
+	background-color: var(--black-100);
+	object-fit: cover;
+	object-position: left center;
 }
 .hero__contents {
 	width: 100%;
