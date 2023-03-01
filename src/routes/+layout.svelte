@@ -2,7 +2,7 @@
 	import { base } from '$app/paths'
   import "../app.postcss";
   const title = "hazycora";
-  const description = "All about me!";
+  const description = "";
   const image = "/pfp.webp";
 </script>
 
