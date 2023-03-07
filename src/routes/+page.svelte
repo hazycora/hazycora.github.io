@@ -5,7 +5,7 @@
 	import Mastodon from '$lib/Icons/Mastodon.svelte'
 	import Email from '$lib/Icons/Email.svelte'
 	import Matrix from '$lib/Icons/Matrix.svelte'
-	import XMPP from '$lib/Icons/XMPP.svelte'
+	import Discord from '$lib/Icons/Discord.svelte'
 </script>
 
 <svelte:head>
@@ -36,9 +36,12 @@
 				<span class="sr-only">Matrix</span>
 				<Matrix />
 			</a>
-			<a class="hover-slide" href="xmpp:h@besties.house">
-				<span class="sr-only">XMPP</span>
-				<XMPP />
+			<a
+				class="hover-slide"
+				href="https://discord.com/users/728131016392441916"
+			>
+				<span class="sr-only">Discord</span>
+				<Discord />
 			</a>
 		</div>
 	</div>
