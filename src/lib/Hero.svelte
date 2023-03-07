@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte'
 	export let fullheight = false
 
-	let heroContentsElem
+	let heroBackdropElem
 	let mousePos = { x: 0, y: 0 }
 
 	function onMouseMove(e) {
@@ -11,58 +11,39 @@
 			x: e.clientX,
 			y: e.clientY
 		}
+		transform()
 	}
 
 	function transform() {
-		const translateCurrent = [
-			parseFloat(
-				(
-					heroContentsElem.style.getPropertyValue('--translate-x') || '0%'
-				).replace('%', '')
-			),
-			parseFloat(
-				(
-					heroContentsElem.style.getPropertyValue('--translate-y') || '0%'
-				).replace('%', '')
-			)
-		]
-		let transform = { x: translateCurrent[0], y: translateCurrent[1] }
 		const newTransform = {
-			x:
-				(Math.min(mousePos.x, window.innerWidth) / window.innerWidth - 0.5) *
-				-2,
-			y:
-				(Math.min(mousePos.y, window.innerHeight) / window.innerHeight - 0.5) *
-				-2
+			x: (mousePos.x/window.innerWidth)-0.5,
+			y: (mousePos.y/window.innerHeight)-0.5
 		}
-		transform = {
-			x: transform.x + (newTransform.x - transform.x) / 8,
-			y: transform.y + (newTransform.y - transform.y) / 8
-		}
-		heroContentsElem.style.setProperty(
-			'--translate-x',
-			`${transform.x.toFixed(4)}%`
-		)
-		heroContentsElem.style.setProperty(
-			'--translate-y',
-			`${transform.y.toFixed(4)}%`
-		)
+		heroBackdropElem.animate([
+			{
+				transform: `scale(1.05) translate(${newTransform.x*5}%, ${newTransform.y*5}%)`
+			}
+		], {
+			duration: 1000,
+			easing: 'ease-in',
+			fill: 'forwards'
+		})
 	}
 
 	onMount(() => {
-		const interval = setInterval(transform, 1000 / 30)
+		const isReduced = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true
+		if (isReduced) return
 		document.body.addEventListener('mousemove', onMouseMove)
 		window.addEventListener('resize', transform)
 		return () => {
 			document.body.removeEventListener('mousemove', onMouseMove)
 			window.removeEventListener('resize', transform)
-			clearInterval(interval)
 		}
 	})
 </script>
 
 <div class="hero" class:hero-fullwidth={fullheight}>
-	<div class="hero__contents" bind:this={heroContentsElem}>
+	<div class="hero__contents">
 		<slot />
 		<div class="hero__backdrop-wrapper">
 			<img
@@ -71,6 +52,7 @@
 				srcset="{base}/bg-50p.jpg 800w, {base}/bg.jpg 1200w"
 				alt=""
 				aria-hidden="true"
+				bind:this={heroBackdropElem}
 			/>
 		</div>
 	</div>
