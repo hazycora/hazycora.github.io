@@ -24,8 +24,8 @@
 				transform: `scale(1.05) translate(${newTransform.x*5}%, ${newTransform.y*5}%)`
 			}
 		], {
-			duration: 1000,
-			easing: 'ease-in',
+			duration: 4000,
+			easing: 'ease',
 			fill: 'forwards'
 		})
 	}
