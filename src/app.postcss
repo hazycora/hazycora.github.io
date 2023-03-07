@@ -33,7 +33,6 @@
 	--font-family-body: 'DM Sans', Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	scroll-behavior: smooth;
-	min-width: 300px;
 }
 
 @media screen and (min-width: 500px) {
@@ -120,6 +119,7 @@ h6 {
 	display: flex;
 	gap: 1rem;
 	isolation: isolate;
+	flex-wrap: wrap;
 }
 
 .socials a {
@@ -302,6 +302,7 @@ h6 {
 }
 .hero__contents {
 	width: 100%;
+	min-width: calc(100vw - 4rem);
 	max-width: 60rem;
 	z-index: 1;
 	grid-row: 1;
@@ -321,11 +322,13 @@ h6 {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+	min-width: 0;
 }
 .hero-name {
 	display: block;
 	font-size: 3.5rem;
 	mix-blend-mode: plus-lighter;
+	min-width: 0;
 }
 .hero-name h1 {
 	font-size: inherit;
@@ -357,6 +360,9 @@ h6 {
 @media (min-width: 400px) {
 	.name-and-icon {
 		font-size: 3rem;
+	}
+	.hero__contents {
+		min-width: 0;
 	}
 }
 @media (min-width: 500px) {
