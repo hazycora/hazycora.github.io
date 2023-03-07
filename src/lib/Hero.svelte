@@ -16,22 +16,28 @@
 
 	function transform() {
 		const newTransform = {
-			x: (mousePos.x/window.innerWidth)-0.5,
-			y: (mousePos.y/window.innerHeight)-0.5
+			x: mousePos.x / window.innerWidth - 0.5,
+			y: mousePos.y / window.innerHeight - 0.5
 		}
-		heroBackdropElem.animate([
+		heroBackdropElem.animate(
+			[
+				{
+					transform: `scale(1.05) translate(${newTransform.x * 5}%, ${
+						newTransform.y * 5
+					}%)`
+				}
+			],
 			{
-				transform: `scale(1.05) translate(${newTransform.x*5}%, ${newTransform.y*5}%)`
+				duration: 4000,
+				easing: 'ease',
+				fill: 'forwards'
 			}
-		], {
-			duration: 4000,
-			easing: 'ease',
-			fill: 'forwards'
-		})
+		)
 	}
 
 	onMount(() => {
-		const isReduced = window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true
+		const isReduced =
+			window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true
 		if (isReduced) return
 		document.body.addEventListener('mousemove', onMouseMove)
 		window.addEventListener('resize', transform)
