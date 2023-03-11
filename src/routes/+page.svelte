@@ -24,7 +24,7 @@
 				<span class="sr-only">Twitter</span>
 				<Twitter />
 			</a>
-			<a class="hover-slide" href="https://fuckgov.org/@h">
+			<a class="hover-slide" rel="me" href="https://fuckgov.org/@h">
 				<span class="sr-only">Mastodon</span>
 				<Mastodon />
 			</a>
