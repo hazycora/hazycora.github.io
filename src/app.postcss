@@ -168,27 +168,6 @@ h6 {
 	text-indent: 2ch;
 }
 
-.img-wrapper {
-	border-radius: 4px;
-	background-color: var(--black-200);
-	margin: 0 0 0.5rem 0;
-	float: right;
-	padding: 0.5rem;
-	width: 100%;
-}
-.img-wrapper img {
-	background-color: black;
-	border-radius: 2px;
-	display: block;
-	width: 100%;
-	object-fit: contain;
-	height: 100%;
-	max-height: 18rem;
-}
-.img-wrapper p {
-	margin-top: 0.4rem;
-}
-
 .button {
 	display: block;
 	width: fit-content;
@@ -259,91 +238,6 @@ h6 {
 	}
 }
 
-.hero {
-	isolation: isolate;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 28rem;
-	padding: 1rem 4rem;
-	background-color: var(--black-400);
-	color: #b0b5ff;
-	font-size: 1.4rem;
-	box-shadow: inset 0 0 6rem 1rem rgb(0 0 0 / 0.1);
-	overflow: hidden;
-}
-.hero-fullwidth {
-	min-height: 100vh;
-	min-height: 100svh;
-}
-.hero__backdrop-wrapper {
-	display: block;
-	z-index: 0;
-	content: '';
-	position: absolute;
-	z-index: -1;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	width: calc(50% + 28rem);
-	max-width: calc(100% - 6rem);
-	clip-path: polygon(20rem 0px, 100% 0%, 100% 100%, 0% 100%);
-	background-color: #1e0b46;
-	overflow: hidden;
-	pointer-events: none;
-}
-.hero__backdrop {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: left center;
-	transform: scale(1.05) translate(var(--translate-x), var(--translate-y));
-}
-.hero__contents {
-	width: 100%;
-	min-width: calc(100vw - 4rem);
-	max-width: 60rem;
-	z-index: 1;
-	grid-row: 1;
-	grid-column: 1;
-	display: flex;
-	gap: 1rem;
-	flex-direction: column;
-	justify-content: center;
-	display: grid;
-	--translate-x: 0%;
-	--translate-y: 0%;
-	grid-template-columns: 3.5rem 1fr;
-	grid-template-rows: 3.5rem 1fr;
-}
-.hero__main {
-	grid-column: 1 / -1;
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	min-width: 0;
-}
-.hero-name {
-	display: block;
-	font-size: 3.5rem;
-	mix-blend-mode: plus-lighter;
-	min-width: 0;
-}
-.hero-name h1 {
-	font-size: inherit;
-	margin: 0;
-}
-.hero-icon {
-	width: 100%;
-	height: 100%;
-	border-radius: 100%;
-	vertical-align: bottom;
-}
-.hero .cora {
-	color: var(--grey-100);
-}
-
 /* utility classes */
 
 .nowrap {
@@ -355,24 +249,6 @@ h6 {
 
 .float-right {
 	float: right;
-}
-
-@media (min-width: 400px) {
-	.name-and-icon {
-		font-size: 3rem;
-	}
-	.hero__contents {
-		min-width: 0;
-	}
-}
-@media (min-width: 500px) {
-	.img-wrapper {
-		max-width: 14rem;
-		margin-left: 0.5rem;
-	}
-	.name-and-icon {
-		font-size: 3.5rem;
-	}
 }
 .sr-only {
 	position: absolute;

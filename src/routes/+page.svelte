@@ -46,3 +46,29 @@
 		</div>
 	</div>
 </Hero>
+
+<style lang="postcss">
+	.hero__main {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		min-width: 0;
+	}
+	.hero-name {
+		display: block;
+		font-size: 3.5rem;
+		mix-blend-mode: plus-lighter;
+		min-width: 0;
+	}
+	.hero-name h1 {
+		font-size: inherit;
+		margin: 0;
+	}
+	.hero-icon {
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+		vertical-align: bottom;
+	}
+</style>
