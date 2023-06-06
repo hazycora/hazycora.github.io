@@ -22,8 +22,8 @@
 		heroBackdropElem.animate(
 			[
 				{
-					transform: `scale(1.05) translate(${newTransform.x * 5}%, ${
-						newTransform.y * 5
+					transform: `scale(1.05) translate(${newTransform.x * -5}%, ${
+						newTransform.y * -5
 					}%)`
 				}
 			],
