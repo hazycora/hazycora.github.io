@@ -51,13 +51,14 @@
 	<div class="hero__contents">
 		<img class="hero-icon" src="{base}/pfp.webp" alt="" aria-hidden="true" />
 		<div class="hero-name">
-			<h1>hazycora</h1>
+			<h1>hazy<wbr />cora</h1>
 		</div>
 		<div class="hero__main">
 			<slot />
 		</div>
 		<div class="hero__backdrop-wrapper">
 			<img
+				draggable="false"
 				class="hero__backdrop"
 				src="{base}/bg-50p.jpg"
 				srcset="{base}/bg-50p.jpg 800w, {base}/bg.jpg 1200w"
@@ -138,7 +139,7 @@
 		--translate-x: 0%;
 		--translate-y: 0%;
 		grid-template-columns: 3.5rem 1fr;
-		grid-template-rows: 3.5rem 1fr;
+		grid-template-rows: min-content 1fr;
 	}
 	.hero__main {
 		grid-column: 1 / -1;
@@ -159,7 +160,7 @@
 	}
 	.hero-icon {
 		width: 100%;
-		height: 100%;
+		align-self: center;
 		border-radius: 100%;
 		vertical-align: bottom;
 	}
