@@ -82,7 +82,6 @@
 		padding: 1rem 4rem;
 		background-color: var(--black-400);
 		color: #b0b5ff;
-		font-size: 1.4rem;
 		box-shadow: inset 0 0 6rem 1rem rgb(0 0 0 / 0.1);
 		overflow: hidden;
 		isolation: isolate;
@@ -150,12 +149,10 @@
 	}
 	.hero-name {
 		display: block;
-		font-size: 3.5rem;
 		mix-blend-mode: plus-lighter;
 		min-width: 0;
 	}
 	.hero-name h1 {
-		font-size: inherit;
 		margin: 0;
 	}
 	.hero-icon {

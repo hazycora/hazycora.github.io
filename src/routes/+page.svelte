@@ -12,7 +12,7 @@
 </svelte:head>
 
 <FancyPage>
-	<p>webdev sometimes</p>
+	<h2>webdev sometimes</h2>
 	<div class="socials">
 		<a class="hover-slide" href="https://twitter.com/hazycora">
 			<span class="sr-only">Twitter</span>
@@ -64,30 +64,6 @@
 		color: inherit;
 		width: 3rem;
 		height: 3rem;
-		border-radius: 0.2rem;
-		overflow: hidden;
-		padding: 0.2rem;
-	}
-	.socials :global(svg) {
-		max-width: 100%;
-		max-height: 2rem;
-		mix-blend-mode: difference;
-	}
-	.socials a::before {
-		content: '';
-		background-color: currentColor;
-		position: absolute;
-		inset: 0;
-		transform-origin: left center;
-		transform: scaleX(0);
-	}
-	@media (prefers-reduced-motion: no-preference) {
-		.socials a::before {
-			transition: transform 200ms cubic-bezier(0.19, 1, 0.22, 1);
-		}
-	}
-	.socials a:hover::before {
-		transform: scaleX(1);
 	}
 
 	.things-list {
@@ -95,15 +71,19 @@
 		gap: 0.25rem;
 		grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
 	}
-	.thing {
+	.thing,
+	.socials a {
+		user-select: none;
 		text-decoration: none;
 		padding: 0.5rem;
 		isolation: isolate;
 		position: relative;
 		color: inherit;
 		font-size: 1rem;
+		transition: color 100ms;
 	}
-	.thing::before {
+	.thing::before,
+	.socials a::before {
 		z-index: -1;
 		content: '';
 		position: absolute;
@@ -114,9 +94,15 @@
 		background-color: rgb(0 0 0 / 0.25);
 		backdrop-filter: blur(2px);
 		opacity: 0;
-		transition: opacity 200ms;
+		transition: opacity 100ms;
 	}
-	.thing:hover::before {
+	.thing:hover,
+	.socials a:hover {
+		color: #d1d4ff;
+		text-decoration: none;
+	}
+	.thing:hover::before,
+	.socials a:hover::before {
 		opacity: 1;
 	}
 	.thing .title {
