@@ -1,74 +1,82 @@
 <script>
-	import { base } from '$app/paths'
-	import Hero from '$lib/Hero.svelte'
-	import Twitter from '$lib/Icons/Twitter.svelte'
-	import Mastodon from '$lib/Icons/Mastodon.svelte'
-	import Email from '$lib/Icons/Email.svelte'
-	import Matrix from '$lib/Icons/Matrix.svelte'
-	import Discord from '$lib/Icons/Discord.svelte'
+	import FancyPage from '$lib/FancyPage.svelte'
+	import TwitterIcon from '$lib/Icons/twitter.svg'
+	import MastodonIcon from '$lib/Icons/mastodon.svg'
+	import EmailIcon from '$lib/Icons/email.svg'
+	import MatrixIcon from '$lib/Icons/matrix.svg'
+	import DiscordIcon from '$lib/Icons/discord.svg'
 </script>
 
 <svelte:head>
 	<title>hazy.gay</title>
 </svelte:head>
 
-<Hero fullheight={true}>
-	<img class="hero-icon" src="{base}/pfp.webp" alt="" aria-hidden="true" />
-	<div class="hero-name">
-		<h1>hazycora</h1>
+<FancyPage>
+	<p>webdev sometimes</p>
+	<div class="socials">
+		<a class="hover-slide" href="https://twitter.com/hazycora">
+			<span class="sr-only">Twitter</span>
+			<TwitterIcon />
+		</a>
+		<a class="hover-slide" rel="me" href="https://fuckgov.org/@h">
+			<span class="sr-only">Mastodon</span>
+			<MastodonIcon />
+		</a>
+		<a class="hover-slide" href="mailto:hazycora@riseup.net">
+			<span class="sr-only">Email</span>
+			<EmailIcon />
+		</a>
+		<a class="hover-slide" href="https://matrix.to/#/@h:besties.house">
+			<span class="sr-only">Matrix</span>
+			<MatrixIcon />
+		</a>
+		<a class="hover-slide" href="https://discord.com/users/728131016392441916">
+			<span class="sr-only">Discord</span>
+			<DiscordIcon />
+		</a>
 	</div>
-	<div class="hero__main">
-		<p>webdev sometimes</p>
-		<div class="socials">
-			<a class="hover-slide" href="https://twitter.com/hazycora">
-				<span class="sr-only">Twitter</span>
-				<Twitter />
-			</a>
-			<a class="hover-slide" rel="me" href="https://fuckgov.org/@h">
-				<span class="sr-only">Mastodon</span>
-				<Mastodon />
-			</a>
-			<a class="hover-slide" href="mailto:h@besties.house">
-				<span class="sr-only">Email</span>
-				<Email />
-			</a>
-			<a class="hover-slide" href="https://matrix.to/#/@h:besties.house">
-				<span class="sr-only">Matrix</span>
-				<Matrix />
-			</a>
-			<a
-				class="hover-slide"
-				href="https://discord.com/users/728131016392441916"
-			>
-				<span class="sr-only">Discord</span>
-				<Discord />
-			</a>
-		</div>
-	</div>
-</Hero>
+</FancyPage>
 
 <style lang="postcss">
-	.hero__main {
-		grid-column: 1 / -1;
+	.socials {
 		display: flex;
-		flex-direction: column;
 		gap: 1rem;
-		min-width: 0;
+		isolation: isolate;
+		flex-wrap: wrap;
 	}
-	.hero-name {
-		display: block;
-		font-size: 3.5rem;
-		mix-blend-mode: plus-lighter;
-		min-width: 0;
+
+	.socials a {
+		position: relative;
+		padding: 0.2rem;
+		overflow: hidden;
+		display: grid;
+		place-items: center;
+		color: inherit;
+		width: 3rem;
+		height: 3rem;
+		border-radius: 0.2rem;
+		overflow: hidden;
+		padding: 0.2rem;
 	}
-	.hero-name h1 {
-		font-size: inherit;
-		margin: 0;
+	.socials :global(svg) {
+		max-width: 100%;
+		max-height: 2rem;
+		mix-blend-mode: difference;
 	}
-	.hero-icon {
-		width: 100%;
-		height: 100%;
-		border-radius: 100%;
-		vertical-align: bottom;
+	.socials a::before {
+		content: '';
+		background-color: currentColor;
+		position: absolute;
+		inset: 0;
+		transform-origin: left center;
+		transform: scaleX(0);
+	}
+	@media (prefers-reduced-motion: no-preference) {
+		.socials a::before {
+			transition: transform 200ms cubic-bezier(0.19, 1, 0.22, 1);
+		}
+	}
+	.socials a:hover::before {
+		transform: scaleX(1);
 	}
 </style>

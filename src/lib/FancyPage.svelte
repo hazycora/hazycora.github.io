@@ -1,7 +1,6 @@
 <script>
 	import { base } from '$app/paths'
 	import { onMount } from 'svelte'
-	export let fullheight = false
 
 	let heroBackdropElem
 	let mousePos = { x: 0, y: 0 }
@@ -48,9 +47,15 @@
 	})
 </script>
 
-<div class="hero" class:hero-fullwidth={fullheight}>
+<div class="hero">
 	<div class="hero__contents">
-		<slot />
+		<img class="hero-icon" src="{base}/pfp.webp" alt="" aria-hidden="true" />
+		<div class="hero-name">
+			<h1>hazycora</h1>
+		</div>
+		<div class="hero__main">
+			<slot />
+		</div>
 		<div class="hero__backdrop-wrapper">
 			<img
 				class="hero__backdrop"
@@ -80,12 +85,11 @@
 		box-shadow: inset 0 0 6rem 1rem rgb(0 0 0 / 0.1);
 		overflow: hidden;
 		isolation: isolate;
-	}
-	.hero-fullwidth {
 		min-height: 100vh;
 		min-height: 100svh;
 	}
 	.hero__backdrop-wrapper {
+		user-select: none;
 		display: block;
 		z-index: 0;
 		content: '';
@@ -107,6 +111,7 @@
 		transform: scale(1.05) translate(var(--translate-x), var(--translate-y));
 	}
 	.hero__backdrop-glass {
+		user-select: none;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -134,6 +139,29 @@
 		--translate-y: 0%;
 		grid-template-columns: 3.5rem 1fr;
 		grid-template-rows: 3.5rem 1fr;
+	}
+	.hero__main {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		min-width: 0;
+	}
+	.hero-name {
+		display: block;
+		font-size: 3.5rem;
+		mix-blend-mode: plus-lighter;
+		min-width: 0;
+	}
+	.hero-name h1 {
+		font-size: inherit;
+		margin: 0;
+	}
+	.hero-icon {
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+		vertical-align: bottom;
 	}
 	@media (min-width: 400px) {
 		.hero__contents {
