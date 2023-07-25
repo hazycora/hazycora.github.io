@@ -18,7 +18,7 @@
 			<span class="sr-only">Twitter</span>
 			<TwitterIcon />
 		</a>
-		<a class="hover-slide" rel="me" href="https://fuckgov.org/@h">
+		<a class="hover-slide" rel="me" href="https://social.besties.house/@h">
 			<span class="sr-only">Mastodon</span>
 			<MastodonIcon />
 		</a>
