@@ -1,0 +1,30 @@
+name: Deploy to pages.gay
+
+on:
+  push:
+    branches: 'main'
+
+jobs:
+  build_site:
+    runs-on: docker
+    steps:
+      - name: Checkout repository
+        uses: https://code.forgejo.org/actions/checkout@v4
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        env:
+          BASE_PATH: '/'
+        run: |
+          pnpm run build
+          touch build/.nojekyll
+
+      - name: Deploy
+        uses: https://git.gay/gitgay/pages-deploy@v1
+        with:
+          folder: ./build
