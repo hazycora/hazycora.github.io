@@ -49,7 +49,13 @@
 
 <div class="hero">
 	<div class="hero__contents">
-		<img class="hero-icon" src="{base}/pfp.webp" alt="" aria-hidden="true" />
+		<img
+			class="hero-icon"
+			draggable="false"
+			src="{base}/pfp.webp"
+			alt=""
+			aria-hidden="true"
+		/>
 		<div class="hero-name">
 			<h1>hazy<wbr />cora</h1>
 		</div>
@@ -156,6 +162,7 @@
 		margin: 0;
 	}
 	.hero-icon {
+		user-select: none;
 		width: 100%;
 		align-self: center;
 		border-radius: 100%;
